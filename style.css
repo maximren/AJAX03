@@ -1,0 +1,51 @@
+body {
+    background-image: url("http://evanstonrocks.com/wp-content/uploads/revslider/simple/h6-slide-1.jpg");
+}
+
+.container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: slategrey;
+    width: 310px;
+    align-content: center;
+    padding: 5px;
+}
+
+#myInput {
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+#getData {
+    width: 300px;
+}
+
+.text {
+    color: #fdfdfd;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.textEvents {
+    color: #fdfdfd;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 700px;
+}
+
+#bandContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+}
+
+#eventsContainer {
+    float: left;
+}
+
+.full {
+    display: flex;
+    flex-direction: row;
+}
