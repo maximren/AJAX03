@@ -24,7 +24,7 @@ body {
 .text {
     color: #fdfdfd;
     font-size: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 
 }
 
@@ -42,8 +42,10 @@ body {
 }
 
 #eventsContainer {
+    margin-top: 90px;
+    margin-left: 150px;
     float: left;
-    height: 500px;
+    height: 380px;
     overflow-y: auto;
 }
 
@@ -65,4 +67,11 @@ body {
 .image {
     width: 400px;
     height: 400px;
+}
+
+.upcomingEvents {
+    font-size: 50px;
+    margin-left: 190px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }

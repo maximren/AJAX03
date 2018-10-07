@@ -13,7 +13,7 @@ const fetchData = (bandName) => {
             if (data) {
                 renderBand(data);
             } else {
-                alert('Band not found');
+                bandNotFound();
             }
         }).catch((err) => {
             console.log(err);
@@ -23,24 +23,36 @@ const fetchData = (bandName) => {
         .then((response) => {
             return response.json();
         }).then((data) => {
-            renderEvents(data);
+            if (data.length == 0) {
+                upcomingEvents();
+            } else {
+                renderEvents(data);
+            }
+            console.log(data);
         }).catch((err) => {
             console.log(err);
         })
 }
 
-const renderNotFound = () => {
-
+const bandNotFound = () => {
+    alert('Band not found');
 };
 
 const renderEvents = (events) => {
-        events.forEach((event) => {
-            const eventParagraph = document.createElement('p');
-            eventParagraph.innerHTML = event.description;
-            eventParagraph.classList.add('textEvents');
-            eventParagraph.classList.add('scrollField');
-            document.getElementById('eventsContainer').appendChild(eventParagraph);
-        });
+    events.forEach((event) => {
+        const eventParagraph = document.createElement('p');
+        eventParagraph.innerHTML = event.description;
+        eventParagraph.classList.add('textEvents');
+        eventParagraph.classList.add('scrollField');
+        document.getElementById('eventsContainer').appendChild(eventParagraph);
+    });
+};
+
+const upcomingEvents = () => {
+    const upcoming = document.createElement('p');
+    upcoming.innerHTML = 'No upcoming events';
+    upcoming.classList.add('upcomingEvents');
+    document.getElementById('eventsContainer').appendChild(upcoming);
 };
 
 const renderBand = (band) => {
