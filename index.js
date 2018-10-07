@@ -10,8 +10,11 @@ const fetchData = (bandName) => {
         .then((response) => {
             return response.json();
         }).then((data) => {
-            console.log(data);
-            renderBand(data);
+            if (data) {
+                renderBand(data);
+            } else {
+                alert('Band not found');
+            }
         }).catch((err) => {
             console.log(err);
         })
@@ -20,29 +23,31 @@ const fetchData = (bandName) => {
         .then((response) => {
             return response.json();
         }).then((data) => {
-            console.log(data)
             renderEvents(data);
         }).catch((err) => {
             console.log(err);
         })
 }
 
-const renderEvents = (events) => {
-    events.forEach((event) => {
-       const eventParagraph = document.createElement('p');
-       eventParagraph.innerHTML = event.description;
-       eventParagraph.classList.add('textEvents');
-       document.getElementById('eventsContainer').appendChild(eventParagraph);
-    });
+const renderNotFound = () => {
 
+};
+
+const renderEvents = (events) => {
+        events.forEach((event) => {
+            const eventParagraph = document.createElement('p');
+            eventParagraph.innerHTML = event.description;
+            eventParagraph.classList.add('textEvents');
+            eventParagraph.classList.add('scrollField');
+            document.getElementById('eventsContainer').appendChild(eventParagraph);
+        });
 };
 
 const renderBand = (band) => {
     const img = document.createElement('img');
     img.src = band.image_url;
     img.classList.add('img-thumbnail');
-    img.style.width = '400px';
-    img.style.height = '400px';
+    img.classList.add('image');
 
     const bandName = document.createElement('p');
     bandName.innerHTML = band.name;
